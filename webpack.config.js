@@ -9,9 +9,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 // const webpack = require('webpack')
 
 module.exports = {
-  
-  
-  
+
   resolve: {
     // 경로에서 확장자 생략 설정
     extensions: ['.js', '.vue'],
@@ -48,7 +46,12 @@ module.exports = {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: '@import "~/scss/main";'
+            }
+          }
         ]
       },
       {
